@@ -77,12 +77,17 @@ public class TetrisGame {
 	 * checking for newly formed lines and adding a new piece
 	 */
 	private void endRound() {
+		//Number of lines got cleared
+		int clearedLines = tetrisBoard.numberOfFormedLines();
+		
 		// Check for newly formed lines
-		numLines += tetrisBoard.numberOfFormedLines();
+		numLines += clearedLines;
+
+		//Check for Tetrises cleared
+		if (clearedLines == 4) numTetrises++;
 
 		// Add a new piece
 		tetrisBoard.addNewPiece();
-		numTetrises++;
 	}
 
 	/**
